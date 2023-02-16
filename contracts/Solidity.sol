@@ -51,18 +51,36 @@ contract Solidity {
     address payable q; 
 
     /*
-    *   Byte and Bytes: byte 
-    *       a) byte
+    *   Bytes: bytes or bytesX
+    *       a) bytes represent a dynamically-sized byte array 
+    *       b) bytesX represents a fixed-size byte arrays that hold a sequence of bytes 
+    *       c) values can range from bytes1 to bytes32
+    *       d) you can represent bytesX as byteX[]
     *       
     */
+    bytes r = hex"11"; //  dynamically sized byte array 
+    // adding the hex keyword represents the hexadecimal literal which will put the binary represenation into bytes r
+    // in this example hex"11" is actualy the value 0x30783131
+    bytes1 s = 0x01; // fixed sized byte array 
+    bytes32 t = "neo";
 
     /*
-    *   String
-    *
-    *
+    *   String: string <name>; 
+    *       a) strings are dynamic arrays of bytes
+    *       b) regular strings can only contain ASCII characters between 0x20 (space character) & 0x7E (~ tilde character)
+    *       c) with the unicode (uincode"test") keyword, they can contain any UTF-8 encoded characters
     */
+    string u = "hello";
+    // string v = "🫡"; this won't work becuase it can only contain ASCII characters 
+    string v = unicode"🫡"; 
+    string w = "asdf" "qwert"; // this is a valid string! strings can be split into multiple parts
+    bytes stringBytes = bytes("me neo"); // converting between string to bytes
+    // converting between hex and string
+    bytes bytesValue = hex"41";
+    string stringData = string(bytesValue);
 
-        /*
+
+    /*
     *   Structs: 
     *       struct <name> {
     *           <type> <name>; 
@@ -128,15 +146,17 @@ contract Solidity {
     string[] public array3 = new string[](3); // ["", "", ""]
     address[2] public array4; // [0x0, 0x0]
 
+
+
     // Part 3: Other 
     /*
     *   Functions  
-    *
+    *      
     */
 
     /*
     *   Events  
-    *
-    */
+    *   
+    */  
 
 }
