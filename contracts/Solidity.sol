@@ -150,13 +150,72 @@ contract Solidity {
 
     // Part 3: Other 
     /*
-    *   Functions  
-    *      
+    *   Functions:  function <nameOfFunction>(params) <accessModifier> <returns>; 
+    *      a) functions are executable snippets of code
+    *      b) they are usually defined inside contracts, but they can also be defined outside contracts (scroll all the way down!)
+    *      c) they can happen internally or externally
+    *      d) they have different levels of visibility when interacting with other contracts
+    *           external: part of the contract interface which means they can be called from other contracts and transactions
+    *           public: public functions are part of the contract interface and can be either called internally or via message calls.
+    *           internal: can only be accessed within the current contract or contracts deriving from it 
+    *           private: private functions are like internal ones but they are not visible in derived contracts.
+    *       e) they have different levels of state mutability 
+    *           view: promises that the function won't modify the state of the blockchain
+    *           pure: promises that the function won't modifiy or read the state of the blockchain
+    *       e) there are multiple ways to return values from functions
     */
+    
+    // can be called within currnet contract or contracts deriving from it or via message calls
+    function testFunction1(uint256 paramA) public returns(uint) {
+        return 1;
+    }
+
+    // can be called within current contract or contracts deriving from it 
+    function testFunction2() internal returns(uint) {
+        return 1;
+    }
+
+    // similar to internal contracts but not visible to derived contracts
+    function testFunction3() private returns(uint) {
+        return 1;
+    }
+
+    // can be called from other contracts and transactions
+    function testFunction4() external returns(uint) {
+        return 1; 
+    }
+
+    function testFunction5() external returns(uint abc) {
+        abc = 1;
+    }
+
+    // promises that the function won't modifiy or read the state of the blockchain
+    function testFunction6() public pure returns(uint) {
+        return 1; 
+    }
+
+    // view promises that the function won't modify the state of the blockchain
+    function testFunction7() public view returns(uint) {
+        return 1; 
+    }
+
 
     /*
-    *   Events  
-    *   
+    *   Events: emit EventName(params)
+    *       a) events allow developers to log information onto the Ethereum blockchain
+    *       b) events are good for knowing when to perform an action, applications usually subscribe and listen to these events
+    *       c) using the indexed keyword lets you filter through the logs by that parameter (up to 3 parameters can be indexed)
     */  
+    event Jump(address indexed sender, uint256 height);
 
+    function personJumps() external returns(uint256) {
+        emit Jump(msg.sender, 1);
+        return 1;
+    }
+}
+
+// this is a valid function! functions can also be defined outside the contract
+// these types of functions are called free functions
+function helper() pure returns(string memory) {
+    return "helloooo"; 
 }
