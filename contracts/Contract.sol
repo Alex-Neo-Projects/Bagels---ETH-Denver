@@ -91,7 +91,7 @@ contract VitaliksHypeShoeStore {
         uint256 id, 
         string memory productName, 
         uint256 cost
-    ) public {
+    ) public payable {
         require(!isCustomer(customerAddress), "Customer needs to register first!");
         customers[customerAddress].purchasedItems.push(Item({id: id, productName: productName, cost: cost}));
         emit BuyShoe(customerAddress, id, productName, cost);
