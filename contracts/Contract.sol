@@ -93,6 +93,7 @@ contract VitaliksHypeShoeStore {
         uint256 cost
     ) public payable {
         require(!isCustomer(customerAddress), "Customer needs to register first!");
+        require(cost != msg.value, "Cannot buy shoe, not enough ETH!");
         customers[customerAddress].purchasedItems.push(Item({id: id, productName: productName, cost: cost}));
         emit BuyShoe(customerAddress, id, productName, cost);
     }
