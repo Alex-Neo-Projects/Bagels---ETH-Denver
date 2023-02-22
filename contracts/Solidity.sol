@@ -10,6 +10,10 @@ contract Solidity {
     bool a; // Defaults to false if not initialized
     bool b = true;
 
+    function returnBool() public view returns (bool) {
+        return a;
+    }
+
     /*
      *   Integers: int or uint
      *   int: signed integer
@@ -115,8 +119,8 @@ contract Solidity {
     }
     Status public status1; // defaults to Status.Incomplete
     Status public status2 = Status.Pending;
-    uint256 minStatusValue = type(Status).min;
-    uint256 maxStatusValue = type(Status).max;
+    // uint256 minStatusValue = type(Status).min;
+    // uint256 maxStatusValue = type(Status).max;
 
     // Part 2: Data Structures
     /*
