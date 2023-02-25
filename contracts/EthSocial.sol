@@ -30,6 +30,8 @@ contract EthSocial {
   }
 
   function createUser(address _userAddress, string memory _username, uint _age) public returns (bool success) { 
+    require(_userAddress == msg.sender, "You can't create an account on behalf of others!!");
+    
     UserStruct memory user;
     user.username = _username;
     user.age = _age;
@@ -42,6 +44,7 @@ contract EthSocial {
   }
 
   function createPost(address _userAddress, string memory _title, string memory _body) public returns (Post memory) { 
+    require(_userAddress == msg.sender, "You can't post on behalf of others!!");
     require(users[_userAddress].isUser == true, "You need to create a user first!!");
 
     Post memory newPost; 
