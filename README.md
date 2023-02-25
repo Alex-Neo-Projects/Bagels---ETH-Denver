@@ -1,31 +1,26 @@
-# Bagels Workshop
+# Learning solidity storage with bagels
 
-This repo contains content for the Bagels workshop at ETH Denver. 
+This repo contains content for the solidity storage with bagels workshop at ETH Denver. 
 
-# [Click here for the powerpoint](https://docs.google.com/presentation/d/1Vu4-oC52tJloBiP8bzF1oEgv2dQiuGFWVwyaRIZCSX0/edit?usp=sharing)
+# [Click here for the slides](https://docs.google.com/presentation/d/1Vu4-oC52tJloBiP8bzF1oEgv2dQiuGFWVwyaRIZCSX0/edit?usp=sharing)
 
 
 ## Installation 
-Download [bagels](https://github.com/Alex-Neo-Projects/bagels) via npm
-```
-npm i -g bagels
-```
 
-Clone this repository: 
+**Clone this repo:**
+
 ```
 git clone https://github.com/Alex-Neo-Projects/Bagels---ETH-Denver.git
 ```
 
-``cd`` into the ```contracts``` folder:
-```
-cd contracts
-```
+**C**hange **D**irectory to the installed folder: 
+```cd Bagels---ETH-Denver```
 
-Run Bagels: 
+**Install bagels via npm:**
+```npm i -g bagels```
+
+
+**Run Bagels in the current directory:**
 ```
 bagels
 ```
-
-## Presentation Slides
-Available on [Google Slides](https://docs.google.com/presentation/d/1Vu4-oC52tJloBiP8bzF1oEgv2dQiuGFWVwyaRIZCSX0/edit?usp=sharing)
-
